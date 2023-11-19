@@ -1,0 +1,55 @@
+{
+    "name": "CupidBot",
+    "description": "Get dates on autopilot",
+    "version": "0.10.44",
+    "manifest_version": 3,
+    "background": {
+        "service_worker": "background.js",
+        "type": "module"
+    },
+    "action": {
+        "default_popup": "popup.html?isChromePopup=true",
+        "default_title": "CupidBot",
+        "default_icon": "cupidbot.png"
+    },
+    "content_scripts": [
+        {
+            "all_frames": true,
+            "js": [
+                "contentScript.js"
+            ],
+            "matches": [
+                "*://*/*"
+            ],
+            "run_at": "document_end",
+            "type": "module"
+        }
+    ],
+    "options_page": "options.html",
+    "permissions": [
+        "debugger",
+        "storage",
+        "unlimitedStorage",
+        "webRequest",
+        "declarativeNetRequest",
+        "tabs"
+    ],
+    "host_permissions": [
+        "*://*/*"
+    ],
+    "icons": {
+        "16": "cupidbot.png",
+        "48": "cupidbot.png",
+        "128": "cupidbot.png"
+    },
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "*"
+            ],
+            "matches": [
+                "*://*/*"
+            ]
+        }
+    ]
+}
